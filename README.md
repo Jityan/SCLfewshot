@@ -24,19 +24,16 @@ The code is tested on Windows 10 with Anaconda3 and following packages:
     - **FC100**: download from [MTL](https://github.com/yaoyao-liu/meta-transfer-learning), extract them into train, val, and test folders and put in `data/fc100` folder.
 
 ## Pre-trained Models
-TBA
+--TBA--
 
 ## Experiments
 To train on miniImageNet:<br/>
 ```
 python train.py --dataset mini --gamma-rot 1.5 --gamma-dist 0.02 --save-path ./save/mini-exp1
 ```
-To evaluate on 5-way 1-shot miniImageNet:<br/>
+To evaluate on 5-way 1-shot and 5-way 5-shot miniImageNet:<br/>
 ```
 python test.py --dataset mini --shot 1 --save-path ./save/mini-exp1
-```
-To evaluate on 5-way 5-shot miniImageNet:<br/>
-```
 python test.py --dataset mini --shot 5 --save-path ./save/mini-exp1
 ```
 
