@@ -6,7 +6,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 import numpy as np
 
-ROOT_PATH = 'c:\\Users\\User\\Desktop\\research_code\\data\\original\\cifar-fs'
+ROOT_PATH = 'c:\\Users\\User\\Desktop\\scl\\data\\cifarfs'
 
 def load_data(file):
     try:
