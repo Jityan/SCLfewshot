@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 
 
-ROOT_PATH = './data/tiered' # tiered-imagenet-kwon
+ROOT_PATH = './data/tieredImageNet' # tiered-imagenet-kwon #tieredImageNet
 
 class TieredImageNet(Dataset):
     def __init__(self, split, size=84, transform=None):
