@@ -1,29 +1,36 @@
 import os
+import pickle
+from PIL import Image
+import numpy as np
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
 
 
-ROOT_PATH = 'c:\\Users\\User\\Desktop\\research_code\\data\\original\\tiered-cus\\'
-
-def getfile(path):
-    datafile = torch.load(path)
-    data = []
-    label = []
-    for d in datafile:
-        data.append(d[0])
-        label.append(d[1])
-    return data, label
+ROOT_PATH = './data/tiered' # tiered-imagenet-kwon
 
 class TieredImageNet(Dataset):
     def __init__(self, split, size=84, transform=None):
+        data = np.load(os.path.join(
+                ROOT_PATH, '{}_images.npz'.format(split)),
+                allow_pickle=True)['images']
+        data = data[:, :, :, ::-1]
 
-        self.split = split
-        self.data, self.label = getfile(os.path.join(ROOT_PATH, "{}_labels.pt".format(self.split)))
+        with open(os.path.join(
+                ROOT_PATH, '{}_labels.pkl'.format(split)), 'rb') as f:
+            label = pickle.load(f)['labels']
+
+        data = [Image.fromarray(x) for x in data]
+
+        min_label = min(label)
+        label = [x - min_label for x in label]
+
+        self.data = data
+        self.label = label
         self.n_classes = max(self.label) + 1
 
         if transform is None:
-            if self.split in ['train', 'trainval']:
+            if split in ['train', 'trainval']:
                 self.transform = transforms.Compose([
                     transforms.Resize(size+12),
                     transforms.RandomCrop(size, padding=8),
@@ -47,15 +54,27 @@ class TieredImageNet(Dataset):
         return len(self.data)
 
     def __getitem__(self, i):
-        data = torch.load(os.path.join(ROOT_PATH, self.split, self.data[i]))
-        img = self.transform(data[0])
-        return img, self.label[i]
+        return self.transform(self.data[i]), self.label[i]
 
 class SSLTieredImageNet(Dataset):
 
     def __init__(self, split, args):
-        self.split = split
-        self.data, self.label = getfile(os.path.join(ROOT_PATH, "{}_labels.pt".format(self.split)))
+        data = np.load(os.path.join(
+                ROOT_PATH, '{}_images.npz'.format(split)),
+                allow_pickle=True)['images']
+        data = data[:, :, :, ::-1]
+
+        with open(os.path.join(
+                ROOT_PATH, '{}_labels.pkl'.format(split)), 'rb') as f:
+            label = pickle.load(f)['labels']
+
+        data = [Image.fromarray(x) for x in data]
+
+        min_label = min(label)
+        label = [x - min_label for x in label]
+
+        self.data = data
+        self.label = label
         self.n_classes = max(self.label) + 1
         self.args = args
 
@@ -86,9 +105,7 @@ class SSLTieredImageNet(Dataset):
         return len(self.data)
 
     def __getitem__(self, i):
-        path, label = self.data[i], self.label[i]
-        img = torch.load(os.path.join(ROOT_PATH, self.split, path))
-        img = img[0]
+        img, label = self.data[i], self.label[i]
         img = self.shared_transform(img)
         image = []
         for _ in range(1):
