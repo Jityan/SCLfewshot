@@ -24,7 +24,7 @@ The code is tested on Windows 10 with Anaconda3 and following packages:
     - **FC100**: download from [MTL](https://github.com/yaoyao-liu/meta-transfer-learning), extract them into train, val, and test folders and put in `data/fc100` folder.
 
 ## Pre-trained Models
---TBA--
+The pre-trained models can be downloaded from [here](https://drive.google.com/file/d/1sH4dgqKhE9jfhediuL9Lf-zLFjHOk-2o/view?usp=sharing).
 
 ## Experiments
 To train on miniImageNet:<br/>
