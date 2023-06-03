@@ -6,7 +6,7 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 import numpy as np
 
-ROOT_PATH = "c:\\Users\\User\\Desktop\\research_code\\data\\original\\FC100\\"
+ROOT_PATH = "c:\\Users\\User\\Desktop\\scl\\data\\fc100\\"
 
 class FC100(Dataset):
 
