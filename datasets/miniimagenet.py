@@ -6,7 +6,7 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 
 
-ROOT_PATH = 'c:\\Users\\User\\Desktop\\research_code\\data\\original\\mini-imagenet\\'
+ROOT_PATH = 'c:\\Users\\User\\Desktop\\scl\\data\\miniImageNet\\'
 
 
 class MiniImageNet(Dataset):
