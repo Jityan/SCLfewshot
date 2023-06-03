@@ -20,22 +20,22 @@ import torch.backends.cudnn as cudnn
 def get_dataset(args):
     if args.dataset == 'mini':
         trainset = SSLMiniImageNet('train', args)
-        valset = MiniImageNet('test', args.size)
+        valset = MiniImageNet('val', args.size)
         n_cls = 64
         print("=> MiniImageNet...")
     elif args.dataset == 'tiered':
         trainset = SSLTieredImageNet('train', args)
-        valset = TieredImageNet('test', args.size)
+        valset = TieredImageNet('val', args.size)
         n_cls = 351
         print("=> TieredImageNet...")
     elif args.dataset == 'cifarfs':
         trainset = SSLCifarFS('train', args)
-        valset = CIFAR_FS('test', args.size)
+        valset = CIFAR_FS('val', args.size)
         n_cls = 64
         print("=> CIFAR-FS...")
     elif args.dataset == 'fc100':
         trainset = SSLFC100('train', args)
-        valset = FC100('test', args.size)
+        valset = FC100('val', args.size)
         n_cls = 60
         print("=> FC100...")
     else:
