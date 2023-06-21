@@ -15,7 +15,7 @@ The code is tested on Windows 10 with Anaconda3 and following packages:
     - `datasets/fc100.py`
 
 2. Download the datasets and put them into corresponding folders that mentioned in the ROOT_PATH:<br/>
-    - ***mini*ImageNet**: download from [Prototypical Networks](https://github.com/yinboc/prototypical-network-pytorch) and put in `data/miniImageNet` folder.
+    - ***mini*ImageNet**: download from [CSS](https://github.com/anyuexuan/CSS) and put in `data/miniImageNet` folder.
 
     - ***tiered*ImageNet**: download from [MetaOptNet](https://github.com/kjunelee/MetaOptNet) and put in `data/tieredImageNet` folder.
 
