@@ -47,17 +47,15 @@ If you find this repo useful for your research, please consider citing the paper
   issn = {0893-6080},
   doi = {https://doi.org/10.1016/j.neunet.2023.05.037},
   url = {https://www.sciencedirect.com/science/article/pii/S0893608023002812},
-  author = {Jit Yan Lim and Kian Ming Lim and Chin Poo Lee and Yong Xuan Tan},
-  keywords = {Few-shot learning, Self-supervised learning, Meta-learning, Contrastive learning},
-  abstract = {Few-shot learning aims to train a model with a limited number of base class samples to classify the novel class samples. However, to attain generalization with a limited number of samples is not a trivial task. This paper proposed a novel few-shot learning approach named Self-supervised Contrastive Learning (SCL) that enriched the model representation with multiple self-supervision objectives. Given the base class samples, the model is trained with the base class loss. Subsequently, contrastive-based self-supervision is introduced to minimize the distance between each training sample with their augmented variants to improve the sample discrimination. To recognize the distant sample, rotation-based self-supervision is proposed to enable the model to learn to recognize the rotation degree of the samples for better sample diversity. The multitask environment is introduced where each training sample is assigned with two class labels: base class label and rotation class label. Complex augmentation is put forth to help the model learn a deeper understanding of the object. The image structure of the training samples are augmented independent of the base class information. The proposed SCL is trained to minimize the base class loss, contrastive distance loss, and rotation class loss simultaneously to learn the generic features and improve the novel class performance. With the multiple self-supervision objectives, the proposed SCL outperforms state-of-the-art few-shot approaches on few-shot image classification benchmark datasets.}
+  author = {Jit Yan Lim and Kian Ming Lim and Chin Poo Lee and Yong Xuan Tan}
 }
 ```
 
 ## Contacts
 For any questions, please contact: <br/>
 
-Jit Yan Lim (lim.jityan@mmu.edu.my) <br/>
-Kian Ming Lim (kmlim@mmu.edu.my)
+Jit Yan Lim (jityan95@gmail.com) <br/>
+Kian Ming Lim (Kian-Ming.Lim@nottingham.edu.cn)
 
 ## Acknowlegements
 This repo is based on **[Prototypical Networks](https://github.com/yinboc/prototypical-network-pytorch)**, **[RFS](https://github.com/WangYueFt/rfs)**, and **[SKD](https://github.com/brjathu/SKD)**.
