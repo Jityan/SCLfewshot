@@ -2,6 +2,8 @@
 
 This repository contains the **pytorch** code for the paper: "[SCL: Self-supervised contrastive learning for few-shot image classification](https://doi.org/10.1016/j.neunet.2023.05.037)" Jit Yan Lim, Kian Ming Lim, Chin Poo Lee, Yong Xuan Tan
 
+\*Please note that we did not apply data augmentation to increase the support sample during the evaluation stage in this repository.
+
 ## Environment
 The code is tested on Windows 10 with Anaconda3 and following packages:
 - python 3.7.4
